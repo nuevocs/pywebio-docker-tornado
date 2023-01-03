@@ -1,2 +1,2 @@
 pywebio==1.7.1
-tornado==6.2
+tornado==6.1

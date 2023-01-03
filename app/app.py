@@ -24,5 +24,8 @@ if __name__ == "__main__":
         (r"/", MainHandler),
         (r"/tool", webio_handler(task_func)),  # `task_func` is PyWebIO task function
     ])
-    application.listen(port=8080, address='localhost') # run python3 app.py
+    application.listen(port=8080, address='0.0.0.0') # run python3 app.py
+
+    # application.listen(port=8080, address='localhost') # run python3 app.py
+
     tornado.ioloop.IOLoop.current().start()

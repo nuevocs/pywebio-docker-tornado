@@ -1,12 +1,21 @@
-FROM python:3.6
+# syntax=docker/dockerfile:1
 
+# Which environment you use?
+FROM python:3.9
+
+# Set work directory
+WORKDIR /app
+
+# set environment variables
 ENV PYTHONUNBUFFERED 1
 ENV DOCKER true
 
-RUN apt-get update && apt-get install -y vim python3-dev
-RUN apt-get clean
-RUN apt-get autoremove
+COPY requirements.txt /app
+RUN pip3 install --upgrade pip
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-ADD ./requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-RUN /sbin/init
+# copy project
+COPY . /app
+
+ENTRYPOINT ["python3"]
+CMD ["app.py"]
