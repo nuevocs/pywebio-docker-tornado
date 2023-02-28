@@ -5,10 +5,11 @@ services:
     container_name: "pywebio-docker"
     restart: always
     build: app
+    networks:
+      - nginxproxymanager_default
     ports:
       - 8080:8080
 
 networks:
-  default:
-    external:
-      name: bridge
+  nginxproxymanager_default:
+    external: true
