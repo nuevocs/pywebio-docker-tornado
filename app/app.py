@@ -20,7 +20,7 @@ def task_func() -> None:
         - 3
         os.getenv("TEST_VAR")
     """)
-    put_text(os.getenv(TEST_VAR))
+    put_text(TEST_VAR)
 
 
 if __name__ == "__main__":
