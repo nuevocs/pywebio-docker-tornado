@@ -1,9 +1,11 @@
+import os
 import tornado.ioloop
 import tornado.web
 from pywebio.platform.tornado import webio_handler
 from pywebio.output import *
 from pywebio import STATIC_PATH
 
+TEST_VAR = os.getenv('TEST_VAR')
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -16,7 +18,9 @@ def task_func() -> None:
         - 1
         - 2
         - 3
+        os.getenv("TEST_VAR")
     """)
+    put_text(os.getenv(TEST_VAR))
 
 
 if __name__ == "__main__":

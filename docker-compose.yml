@@ -9,6 +9,8 @@ services:
       - nginxproxymanager_default
     ports:
       - 8080:8080
+    environment:
+      - TEST_VAR = ${TEST_VAR}
 
 networks:
   nginxproxymanager_default:
